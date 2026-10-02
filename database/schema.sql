@@ -1,0 +1,35 @@
+-- CATEGORIA
+CREATE TABLE category (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(50) UNIQUE NOT NULL
+);
+
+-- UNIDADE
+CREATE TABLE unit (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(50) NOT NULL
+);
+
+-- PRODUTO
+CREATE TABLE product (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(100) UNIQUE NOT NULL ,
+    description VARCHAR(200) NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
+-- PRODUTO VARIANTE
+CREATE TABLE product_variant (
+    id INTEGER PRIMARY KEY  AUTOINCREMENT,
+    product_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    unit_id INTEGER NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    stock INTEGER NOT NULL,
+    image VARCHAR(255),
+
+    FOREIGN KEY (product_id) REFERENCES product(id),
+    FOREIGN KEY (unit_id) REFERENCES unit(id)
+);

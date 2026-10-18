@@ -5,18 +5,28 @@ public class Product {
     private Integer id;
     private String name;
     private String description;
-    private Integer categoryId;
+    private Float price;
+    private String category;
+    private Integer stock;
+    private String image;
 
+// Constructor empty
     public Product(){
     }
+
 //Constructor
-    public Product(String name, String description, Integer categoryId){
+    public Product(String name, String description, Float price, String category, Integer stock, String image){
         this.name = name;
         this.description = description;
-        this.categoryId = categoryId;
+        this.price = price;
+        this.category = category;
+        this.stock = stock;
+        this.image = image;
     }
 
 //Getters
+    public Integer getId () {return  id;}
+
     public String getName(){
         return  name;
     }
@@ -25,15 +35,21 @@ public class Product {
         return description;
     }
 
-    public Integer getCategoryId (){
-        return categoryId;
+    public Float getPrice(){
+        return price;
     }
 
-    public Integer getId (){
-        return  id;
-    }
+    public String getCategory() {return category;}
+
+    public Integer getStock() {return stock;}
+
+    public String getImage() {return image;}
 
  //Setters
+    public void setId (Integer id) {
+        this.id = id;
+    }
+
     public void setName (String name) {
         this.name = name;
     }
@@ -42,11 +58,19 @@ public class Product {
         this.description = description;
     }
 
-    public void setCategoryId (Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setPrice (Float price) {
+        this.price = price;
     }
 
-    public void setId (Integer id) {
-        this.id = id;
+    public void setCategory (String category) {
+        this.category = category;
+    }
+
+    public void setStock (Integer stock) {
+        this.stock = stock;
+    }
+
+    public void setImage (String image) {
+        this.image = image;
     }
 }

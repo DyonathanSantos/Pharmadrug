@@ -1,5 +1,6 @@
 package com.pharmacy.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
@@ -14,6 +15,11 @@ import java.sql.SQLException;
 public class DatabaseConfig {
 
     private static final String URL = "jdbc:sqlite:database/pharmacy.db";
+
+    @Bean
+    public Connection connection() throws SQLException {
+        return DriverManager.getConnection(URL);
+    }
 
     public DatabaseConfig() {
         initializeDatabase();

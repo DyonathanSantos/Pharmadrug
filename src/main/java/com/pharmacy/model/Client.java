@@ -1,13 +1,12 @@
 package com.pharmacy.model;
 
-import org.jetbrains.kotlin.it.unimi.dsi.fastutil.Hash;
-
 public class Client {
 
     private Integer id;
     private String name;
     private String email;
-    private Integer password;
+    private String passwordHash;
+    private Role cargo = Role.CLIENTE;
 
 
     //construtor vazio
@@ -15,10 +14,11 @@ public class Client {
     }
 
     //Construtro com valores
-    public Client(String name, String email, Integer password) {
+    public Client(String name, String email, String passwordHash) {
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.passwordHash = passwordHash;
+        this.cargo = Role.CLIENTE;
     }
 
 
@@ -29,7 +29,9 @@ public class Client {
 
     public String getEmail() {return email;}
 
-    public Integer getPassword() {return password;}
+    public String getPasswordHash() {return passwordHash;}
+
+    public Role getCargo() {return cargo;}
 
 
     //Setters
@@ -45,7 +47,11 @@ public class Client {
         this.email = email;
     }
 
-    public void setPassword(Integer password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public void setCargo(Role cargo) {
+        this.cargo = cargo;
     }
 }

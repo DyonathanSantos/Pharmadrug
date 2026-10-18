@@ -1,11 +1,13 @@
 package com.pharmacy.model;
 
+import java.math.BigDecimal;
+
 public class Product {
 
     private Integer id;
     private String name;
     private String description;
-    private Float price;
+    private BigDecimal price;
     private String category;
     private Integer stock;
     private String image;
@@ -15,7 +17,7 @@ public class Product {
     }
 
 //Constructor
-    public Product(String name, String description, Float price, String category, Integer stock, String image){
+    public Product(String name, String description, BigDecimal price, String category, Integer stock, String image){
         this.name = name;
         this.description = description;
         this.price = price;
@@ -35,7 +37,7 @@ public class Product {
         return description;
     }
 
-    public Float getPrice(){
+    public BigDecimal getPrice(){
         return price;
     }
 
@@ -58,7 +60,7 @@ public class Product {
         this.description = description;
     }
 
-    public void setPrice (Float price) {
+    public void setPrice (BigDecimal price) {
         this.price = price;
     }
 
